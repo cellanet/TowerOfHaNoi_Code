@@ -8,32 +8,36 @@ using namespace std;
 
 int main()
 {
-	towerOfHanoi tower;
+	towerOfHanoi game;
 
 	vector <int> towerA;
 	vector <int> towerB;
 	vector <int> towerC;
 
 	// input the disks into towerA
-	tower.getInputDisk(towerA);
+	game.getInputDisk(towerA);
 
 	//test input
-	tower.output(towerA);
+	game.output(towerA);
 
+	//towerB.push_back(0);
 	char from, to;
-
+	
 	//asking the user where to move
-	tower.getInputTower(from, to);
+	game.getInputTower(from, to);
 
-	int sizeA = towerA.size();
+	int oriSizeA = towerA.size();
+	int sizeB = towerB.size();
 
-	//loop until tower B or C full
-	while ((!towerA.empty() && !towerB.size()==sizeA)|| (!towerA.empty() && !towerC.size() == sizeA))
+
+	//game.moveTower(towerA, towerB, towerC, from, to);
+
+	while (!(oriSizeA == towerB.size()))
 	{
-		//move disks between towers.
-		// larger disk can't be placed on top of smaller disk
-		tower.moveTower(towerA, towerB, towerC, from, to);
+		game.moveTower(towerA, towerB, towerC, from, to);
 	}
+	
+
 	
 
 
